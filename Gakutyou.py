@@ -11,8 +11,8 @@ class Gakutyou(pg.sprite.Sprite):
 
     def __init__(self, position: tuple[int, int], size: float) -> None:
         super().__init__()
-        gImg = pg.image.load("images/gakutyou.png") # 学長画像
-        cImg = pg.image.load("images/g_cloud.png") # 学長が乗る雲画像
+        gImg = pg.image.load("ex05/images/gakutyou.png") # 学長画像
+        cImg = pg.image.load("ex05/images/g_cloud.png") # 学長が乗る雲画像
         self.image = pg.Surface((300, 340)) # 学長の画像を張り付ける用のSurface
         self.image.fill(Gakutyou.BACK_COLOR)
         self.image.blit(pg.transform.rotozoom(gImg, 0, 300 / gImg.get_width() * 1.9), (-210,-70))
@@ -20,7 +20,7 @@ class Gakutyou(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = position
 
-        eyeLight = pg.image.load("images/eye_light.png") # 目の光をロード
+        eyeLight = pg.image.load("ex05/images/eye_light.png") # 目の光をロード
         eyeLight = pg.transform.rotozoom(eyeLight, 0, 0.035) # サイズ調整
         self.images: list[pg.surface.Surface] = []
         # ここからフレームごとに切り替える学長画像のリストを作成
@@ -60,7 +60,7 @@ class Gakutyou(pg.sprite.Sprite):
             self.image = self.images[int(self.timer * ((self.timer // 120 + 1) ** 2)) % 120] # タイマーに応じて画像を変更
             if int(self.timer * ((self.timer // 120 + 1) ** 2)) % 120 <= 10:
                 pg.mixer.init() # 目が光る効果音を再生
-                pg.mixer.music.load("sounds/pika.mp3")
+                pg.mixer.music.load("ex05/sounds/pika.mp3")
                 pg.mixer.music.play(1)
         
     def get_isReady(self):

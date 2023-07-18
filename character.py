@@ -14,7 +14,7 @@ class Character(pg.sprite.Sprite):
         引数 xy：キャラクターの初期位置
         """
         super().__init__()
-        self.image = pg.transform.flip(pg.transform.rotozoom(pg.image.load("images/character1.png"), 0, 0.5), True, False)
+        self.image = pg.transform.flip(pg.transform.rotozoom(pg.image.load("ex05/images/character1.png"), 0, 0.5), True, False)
         self.rect = self.image.get_rect()
         self.rect.center = xy
         self.dx = 10
@@ -44,7 +44,7 @@ class Character(pg.sprite.Sprite):
         引数１ num：画像の番号
         引数２ screen：画面Surface
         """
-        self.image = pg.transform.flip(pg.transform.rotozoom(pg.image.load(f"images/character{num}.png"), 0, 0.5), True, False)
+        self.image = pg.transform.flip(pg.transform.rotozoom(pg.image.load(f"ex05/images/character{num}.png"), 0, 0.5), True, False)
         screen.blit(self.image, self.rect)
 
  

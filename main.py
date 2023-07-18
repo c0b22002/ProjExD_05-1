@@ -27,7 +27,7 @@ class Wall(pg.sprite.Sprite):
         引数: screen: 画面Surface
         """
         super().__init__()
-        self.image = pg.transform.rotozoom(pg.image.load("images/tree.png"), 0, 0.5)  # 木の画像を読み込む
+        self.image = pg.transform.rotozoom(pg.image.load("ex05/images/tree.png"), 0, 0.5)  # 木の画像を読み込む
         screen.blit(self.image, [WITDH, HEIGHT - 350])  # 木を表示
         self.rect = self.image.get_rect()  # 木のrectを作成
         self.rect.bottom = HEIGHT - TREE_BOTTOM + 53  # 木のY座標を固定
@@ -58,7 +58,7 @@ class Start_menu:
         """
         フォント、メニュータイトルの表示
         """
-        self.font = pg.font.Font("fonts/onryou.TTF", 100)
+        self.font = pg.font.Font("ex05/fonts/onryou.TTF", 100)
         self.menu_title = self.font.render("学長から見つかるな！", True, (255, 255, 255))
         
     def button(self, screen: pg.Surface, num:int):
@@ -91,7 +91,7 @@ class Enemy(pg.sprite.Sprite):
 
     def __init__(self):
         super().__init__()
-        self.image = pg.transform.rotozoom(pg.image.load("images/ojama.png"), 0, 0.3)   # 障害物の画像読み込み
+        self.image = pg.transform.rotozoom(pg.image.load("ex05/images/ojama.png"), 0, 0.3)   # 障害物の画像読み込み
         self.rect = self.image.get_rect()
         self.rect.center = WITDH + 100, HEIGHT / 4
         self.vy = +40
@@ -142,7 +142,7 @@ def main():
 
 
     # ここからゲームスタート
-    bg_image = pg.transform.rotozoom(pg.image.load("images/sky_img.png"), 0, 1.0)
+    bg_image = pg.transform.rotozoom(pg.image.load("ex05/images/sky_img.png"), 0, 1.0)
 
     gakutyou = Gakutyou((1000, 200), 1) # 学長インスタンスを作成
     character = ch.Character([200, 720])
@@ -203,7 +203,7 @@ def main():
 
         # ゲームオーバー判定
         if game_state == "game_over":
-            fonto = pg.font.Font("fonts/onryou.TTF", 200)
+            fonto = pg.font.Font("ex05/fonts/onryou.TTF", 200)
             txt = fonto.render("退学", True, (255, 0, 0))
             txt_rect = txt.get_rect()
             txt_rect.center = (WITDH / 2, HEIGHT / 2)
